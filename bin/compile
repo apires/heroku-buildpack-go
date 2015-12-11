@@ -262,7 +262,11 @@ cd $p
 echo "zzz"
 echo "build"
 echo $build
+find $build
+echo "code"
 find /app/code
+echo "garabge dump"
+find /
 
 if test -e $build/Godeps
 then
