@@ -257,12 +257,6 @@ fi
 unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
 
-echo "zzz"
-echo "find $build/vendor"
-find $build/vendor
-echo "find code/vendor"
-find /app/code/vendor
-
 if test -e $build/Godeps
 then
     if test "$GO15VENDOREXPERIMENT" = "1"
