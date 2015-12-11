@@ -57,8 +57,6 @@ report_ver() {
 
 mkdir -p "$1" "$2"
 build=$(cd "$1/" && pwd)
-echo "build pre"
-echo $build
 cache=$(cd "$2/" && pwd)
 buildpack=$(cd "$(dirname $0)/.." && pwd)
 arch=$(uname -m|tr A-Z a-z)
@@ -260,13 +258,10 @@ unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
 
 echo "zzz"
-echo "build"
-echo $build
-find $build
-echo "code"
-find /app/code
-echo "garabge dump"
-find /
+echo "find $build/vendor"
+find $build/vendor
+echo "find code/vendor"
+find /app/code/vendor
 
 if test -e $build/Godeps
 then
