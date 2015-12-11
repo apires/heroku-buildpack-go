@@ -200,7 +200,7 @@ env_dir="$3"
 if [ -d "$env_dir" ]
 then
     ln -sfn $build /app/code
-  for key in CGO_CFLAGS CGO_CPPFLAGS CGO_CXXFLAGS CGO_LDFLAGS GO_LINKER_SYMBOL GO_LINKER_VALUE GO15VENDOREXPERIMENT
+  for key in CGO_CFLAGS CGO_CPPFLAGS CGO_CXXFLAGS CGO_LDFLAGS GO_LINKER_SYMBOL PKG_CONFIG_PATH GO_LINKER_VALUE GO15VENDOREXPERIMENT
     do
         if [ -f "$env_dir/$key" ]
         then
@@ -273,6 +273,8 @@ fi
 
 rm -rf $build/.heroku
 
+echo "zzz"
+find /app/code
 mkdir -p $build/.profile.d
 echo 'PATH=$PATH:$HOME/bin' > $build/.profile.d/go.sh
 cp $buildpack/vendor/concurrency.sh $build/.profile.d/
