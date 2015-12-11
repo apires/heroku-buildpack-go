@@ -256,6 +256,10 @@ fi
 
 unset GIT_DIR # unset git dir or it will mess with goinstall
 cd $p
+
+echo "zzz"
+find /app/code
+
 if test -e $build/Godeps
 then
     if test "$GO15VENDOREXPERIMENT" = "1"
@@ -273,8 +277,6 @@ fi
 
 rm -rf $build/.heroku
 
-echo "zzz"
-find /app/code
 mkdir -p $build/.profile.d
 echo 'PATH=$PATH:$HOME/bin' > $build/.profile.d/go.sh
 cp $buildpack/vendor/concurrency.sh $build/.profile.d/
